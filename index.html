@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8dce7">
+  <meta name="description" content="Lu Look Moda — looks que valorizam você.">
+  <title>Lu Look Moda | Looks que valorizam você</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">Um look especial espera por você <span>♡</span></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Lu Look Moda, página inicial">
+      <span class="brand-mark">lu</span>
+      <span class="brand-copy"><strong>Lu Look Moda</strong><small>looks que valorizam você</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre a loja</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link instagram-top" href="https://www.instagram.com/lulook_moda/" target="_blank" rel="noopener" aria-label="Instagram da Lu Look Moda">◎</a>
+      <button class="cart-button" id="open-cart" type="button" aria-label="Abrir carrinho">Sacola <span id="cart-count">0</span></button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">SEU ESTILO, DO SEU JEITO</p>
+        <h1>Looks que<br><em>valorizam você.</em></h1>
+        <p class="hero-description">Peças escolhidas com carinho para acompanhar seus momentos e deixar você ainda mais confiante.</p>
+        <a class="button button-dark" href="#produtos">Descobrir peças <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span class="sparkle">✦</span> Atendimento pelo Instagram <span class="dot">·</span> Afogados da Ingazeira – PE</div>
+      </div>
+      <div class="hero-art reveal" aria-label="Ilustração decorativa em tons de rosa">
+        <div class="hero-oval"></div>
+        <div class="hero-ribbon">feito para<br>você ♡</div>
+        <div class="hero-flower flower-one">✿</div>
+        <div class="hero-flower flower-two">✽</div>
+        <div class="hero-card"><span>LU LOOK</span><strong>um toque<br>de charme</strong><small>MODA FEMININA</small></div>
+        <span class="hero-star star-one">✧</span><span class="hero-star star-two">✧</span>
+      </div>
+    </section>
+
+    <section class="category-section section-wrap" id="categorias">
+      <div class="section-heading">
+        <div><p class="eyebrow">ENCONTRE SEU ESTILO</p><h2>Explore as categorias</h2></div>
+        <p>Um cantinho para encontrar suas próximas peças favoritas.</p>
+      </div>
+      <div class="category-grid">
+        <button class="category-card cat-lingerie" data-category="Lingeries" type="button"><span class="category-icon">♡</span><strong>Lingeries</strong><small>Delicadeza em cada detalhe</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-pijama" data-category="Pijamas" type="button"><span class="category-icon">☾</span><strong>Pijamas</strong><small>Conforto para seus momentos</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-praia" data-category="Biquínis e moda praia" type="button"><span class="category-icon">☼</span><strong>Biquínis e moda praia</strong><small>Leveza para dias ensolarados</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-fitness" data-category="Fitness" type="button"><span class="category-icon">✧</span><strong>Fitness</strong><small>Seu movimento, seu ritmo</small><span class="category-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="produtos">
+      <div class="section-heading products-heading">
+        <div><p class="eyebrow">ESCOLHIDOS PARA VOCÊ</p><h2>Peças da loja</h2></div>
+        <span class="product-total" id="product-total">12 peças</span>
+      </div>
+      <div class="shop-controls">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Buscar uma peça..." aria-label="Buscar produtos"></label>
+        <label class="select-wrap"><span class="sr-only">Filtrar por categoria</span>
+          <select id="category-filter">
+            <option value="Todas">Todas as categorias</option>
+            <option value="Lingeries">Lingeries</option>
+            <option value="Pijamas">Pijamas</option>
+            <option value="Biquínis e moda praia">Biquínis e moda praia</option>
+            <option value="Fitness">Fitness</option>
+            <option value="Masculina">Masculina</option>
+          </select>
+        </label>
+        <label class="select-wrap"><span class="sr-only">Ordenar produtos</span>
+          <select id="sort-filter">
+            <option value="featured">Ordenação padrão</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+            <option value="name">Nome A–Z</option>
+          </select>
+        </label>
+      </div>
+      <p class="results-message" id="results-message" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state" id="empty-state" hidden><span>♡</span><h3>Nenhuma peça encontrada</h3><p>Tente outro nome ou escolha outra categoria.</p><button class="button button-outline" id="clear-filters" type="button">Limpar filtros</button></div>
+    </section>
+
+    <section class="insta-banner" id="sobre">
+      <div class="insta-flower">✿</div>
+      <div><p class="eyebrow">VAMOS CONVERSAR?</p><h2>Seu próximo look pode estar aqui.</h2><p>Gostou de alguma peça? Fale com a gente pelo Instagram para confirmar disponibilidade, tirar dúvidas e combinar o pagamento.</p></div>
+      <a class="button button-dark" href="https://www.instagram.com/lulook_moda/" target="_blank" rel="noopener">Visitar Instagram <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark">lu</span><span class="brand-copy"><strong>Lu Look Moda</strong><small>looks que valorizam você</small></span></a><p>Moda escolhida com carinho para valorizar seu jeito de ser.</p></div>
+      <div class="footer-column"><h3>Explore</h3><a href="#categorias">Categorias</a><a href="#produtos">Nossas peças</a><a href="#sobre">Sobre a loja</a></div>
+      <div class="footer-column"><h3>Atendimento</h3><span>Afogados da Ingazeira – PE</span><span>Entregas na cidade</span><span>Pagamento via Pix ou dinheiro</span></div>
+      <div class="footer-column"><h3>Fale com a gente</h3><a href="https://www.instagram.com/lulook_moda/" target="_blank" rel="noopener">@lulook_moda ↗</a><span>Pedidos e dúvidas pelo Instagram</span></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Lu Look Moda. Todos os direitos reservados.</span><span>Feito com carinho <b>♡</b></span></div>
+  </footer>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-panel" id="cart-panel" aria-label="Sua sacola" aria-hidden="true">
+    <div class="cart-header"><div><p class="eyebrow">SELEÇÃO ESPECIAL</p><h2>Sua sacola <span id="cart-heading-count">(0)</span></h2></div><button class="close-cart" id="close-cart" type="button" aria-label="Fechar sacola">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span>♡</span><p>Sua sacola está esperando por você.</p><button class="button button-outline" id="continue-shopping" type="button">Continuar escolhendo</button></div>
+    <div class="cart-footer" id="cart-footer" hidden>
+      <div class="cart-total"><span>Total estimado</span><strong id="cart-total">R$ 0,00</strong></div>
+      <p class="cart-disclaimer">Confirme disponibilidade e valor final pelo Instagram antes de pagar.</p>
+      <button class="button button-dark checkout-button" id="checkout-instagram" type="button">Continuar pelo Instagram ↗</button>
+      <button class="copy-order" id="copy-order" type="button">Copiar resumo do pedido</button>
+      <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
